@@ -5,9 +5,9 @@ let newCat = function(){
       .then(res => res.json())
       .then((out) => {
 let img = document.createElement("img");   // thumbnail
-let a = document.createElement("a");   // Create a <button> element
+let a = document.createElement("a");
 let img2 = document.createElement("img");   // lightbox
-let a2 = document.createElement("a");   // Create a <button> element
+let a2 = document.createElement("a");
 
           img.src= out.file;
           img.classList.add("thumbnail");
@@ -32,8 +32,6 @@ if (probability > 75) {img.classList.add("max85");}
   }).catch(err => console.error(err));
 }
 let catter = function() {setTimeout(newCat,0);}
-//catter = function() {newCat();}
-//console.log(i);
 let initCatter = function() {for (let i=0; i < 3; i=i+1) {
 catter();
 }}
@@ -52,9 +50,7 @@ var shouldIinfiniteScroll = function() {
     var lastImg = document.querySelector(".thumbnail_container:nth-last-child(2) img");
     if (lastImg != undefined){
       var lastImgOffset = lastImg.offsetTop + lastImg.clientHeight;
-      //console.log(lastImgOffset);
       var pageOffset = window.pageYOffset + window.innerHeight;
-      //console.log(pageOffset);
       if(pageOffset > lastImgOffset - (window.innerHeight * .5) ) {
         working = true;
         console.log("NEXTING");
