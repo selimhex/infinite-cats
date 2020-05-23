@@ -12,3 +12,4 @@ main {display: flex; flex-wrap: wrap; width: 100vw; min-height: 100vh; align-ite
 .lightbox:target img {}
 body *, a, img { overflow: hidden; }
 .thumbnail_container:nth-last-child(2) {display: block;border: 0px solid red;}
+img { margin-bottom: 5%;}

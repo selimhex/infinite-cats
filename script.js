@@ -11,6 +11,7 @@ let a2 = document.createElement("a");
 
           img.src= out.file;
           img.classList.add("thumbnail");
+          img.loading = "lazy";
           a.classList.add("thumbnail_container");
           a.href = "#img" + i;
           let probability = chance.natural({ min: 1, max: 100 })
@@ -20,6 +21,7 @@ if (probability > 60) {img.classList.add("max60");}
 if (probability > 75) {img.classList.add("max85");}
 
           img2.src= out.file;
+          img2.loading = "lazy";
           a2.classList.add("lightbox");
           a2.href = "#_";
           a2.id = "img" + i;
@@ -32,10 +34,10 @@ if (probability > 75) {img.classList.add("max85");}
   }).catch(err => console.error(err));
 }
 let catter = function() {setTimeout(newCat,0);}
-let initCatter = function() {for (let i=0; i < 3; i=i+1) {
+let initCatter = function() {for (let i=0; i < 10; i=i+1) {
 catter();
 }}
-initCatter();initCatter();initCatter();
+initCatter();
 
 //let autoCat = setInterval(newCat, 10000);
 
@@ -54,13 +56,13 @@ var shouldIinfiniteScroll = function() {
       if(pageOffset > lastImgOffset - (window.innerHeight * .5) ) {
         working = true;
         console.log("NEXTING");
-        lastImg.style["padding-bottom"] = "400vh";
+        lastImg.style["padding-bottom"] = "30vh";
         initCatter();
         shouldIinfiniteScroll();
         setTimeout(function(){lastImg.style["padding-bottom"] = "0px"; console.log("setting padding bottom to 0");
 working = false;
 }, 1000);
-      
+
     }
     }
   } else {
