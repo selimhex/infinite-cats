@@ -57,8 +57,10 @@ var shouldIinfiniteScroll = function() {
         lastImg.style["padding-bottom"] = "400vh";
         initCatter();
         shouldIinfiniteScroll();
-        setTimeout(function(){lastImg.style["padding-bottom"] = "0px"; console.log("setting padding bottom to 0");}, 0);
-      working = false;
+        setTimeout(function(){lastImg.style["padding-bottom"] = "0px"; console.log("setting padding bottom to 0");
+working = false;
+}, 1000);
+      
     }
     }
   } else {
