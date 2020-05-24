@@ -4,12 +4,13 @@ main {display: flex; flex-wrap: wrap; width: 100vw; min-height: 100vh; align-ite
 .thumbnail.max30 {max-width: 30vw; height: auto;}
 .thumbnail.max60 {max-width: 60vw; max-height: 100vh;height: auto;}
 .thumbnail.max85 {max-width: 85vw; height: auto;}
-.lightbox {display: none;position: fixed; }
-.lightbox {
-  width: 100vw; height: 100vh; background: #000; overflow-y: scroll;}
-.lightbox img {width: 100%; height: auto; max-width: 100%;display: block;}
-.lightbox:target {display: flex; align-items: center;top:0; left: 0;}
-.lightbox:target img {}
-body *, a, img { overflow: hidden; }
-.thumbnail_container:nth-last-child(2) {display: block;border: 0px solid red;}
+.lightbox { display: none; position: fixed; top:0; left: 0;
+width: 100vw; height: 100vh; background: #000; overflow-y: scroll;
+/* v-align top; because flex direction row > */ align-items: flex-start;
+justify-content: center;
+}
+.lightbox img {width: 100%; height: auto; max-width: 100%;}
+.lightbox:target {display: flex;}
+/* body *, a, img { overflow: hidden; } */
+.thumbnail_container:nth-last-child(2) {/*display: block;*/border: 0px solid red;}
 .thumbnail_container { margin-bottom: 5%;}
