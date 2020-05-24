@@ -1,8 +1,8 @@
 # infinite cats for internet's sake
-a website loading random cat pictures from [Random Cat](https://aws.random.cat/meow) with a primitive "infinite scroll".
+a website loading random cat pictures from [Random Cat](https://aws.random.cat/meow) à la "infinite scroll".
 
 ## known issues / bugs / questions without answers
-- if the browser can't load new set of images, although the links are gathered through the API, browser may try to load another set of images, this may lead to overloading.
+¯\\\_(ツ)\_/¯
 
 ## roadmap / maybe
 - hint lightbox is scrollable if the pic not wholly in screen
