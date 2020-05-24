@@ -1,4 +1,5 @@
 *{margin: 0; padding: 0;  box-sizing: border-box;}
+body {min-height: 100vh;}
 main {display: flex; flex-wrap: wrap; width: 100vw; min-height: 100vh; align-items: center; justify-content: space-around;}
 .thumbnail {max-width: 50vw; height: auto;}
 .thumbnail.max30 {max-width: 30vw; height: auto;}
@@ -12,5 +13,6 @@ justify-content: center;
 .lightbox img {width: 100%; height: auto; max-width: 100%; margin-top: auto; margin-bottom: auto;}
 .lightbox:target {display: flex;}
 /* body *, a, img { overflow: hidden; } */
-.thumbnail_container:nth-last-child(2) {/*display: block;*/border: 0px solid red;}
+body.debugMode .thumbnail_container:nth-last-child(2) {/*display: block;*/border: 3px solid red;}
 .thumbnail_container { margin-bottom: 5%;}
+footer { height: 10vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #ccc5;}
