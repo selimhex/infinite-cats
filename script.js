@@ -51,7 +51,7 @@ debug = function(b){
 }
 debug(debugMode);
 
-let initCatter = function(catcount) {
+let initCatter = function(catcount, lazyload) {
   fetchloop = 1;
   for (let forlooper = 0; forlooper < catcount; forlooper++) {
     let prev_fetchloopDone = fetchloopDone;
@@ -67,7 +67,6 @@ let initCatter = function(catcount) {
 
         img.src = out.file;
         img.classList.add("thumbnail");
-        img.loading = "lazy";
         img.onload = function() {loadedimgcount++; checkIfWorking();}
         a.classList.add("thumbnail_container");
         a.href = "#img" + i;
@@ -78,10 +77,13 @@ let initCatter = function(catcount) {
         if (probability > 75) {img.classList.add("max85");}
 
         img2.src = out.file;
-        img2.loading = "lazy";
         a2.classList.add("lightbox");
         a2.href = "#_";
         a2.id = "img" + i;
+
+        if (lazyload != false) {
+        img.loading = "lazy";
+        img2.loading = "lazy"; }
 
         a.appendChild(img);
         a2.appendChild(img2);
@@ -99,7 +101,7 @@ let initCatter = function(catcount) {
 
   }
 }
-initCatter(10);
+initCatter(10, false);
 
 
 //let autoCat = setInterval(newCat, 10000);
