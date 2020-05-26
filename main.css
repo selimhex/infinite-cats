@@ -1,5 +1,6 @@
 *{margin: 0; padding: 0;  box-sizing: border-box;}
-body {min-height: 100vh;}
+html { scroll-behavior: smooth;}
+body {min-height: 100vh; scroll-behavior: smooth;}
 main .thumbs {display: flex; flex-wrap: wrap; width: 100vw; min-height: 100vh; align-items: center; justify-content: space-around;}
 .thumbnail {max-width: 50vw; height: auto;}
 .thumbnail.max30 {max-width: 30vw; height: auto;}

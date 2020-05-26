@@ -85,6 +85,7 @@ let initCatter = function(catcount, lazyload) {
         img2.src = out.file;
         a2.classList.add("lightbox");
         a2.href = "#th" +i;
+        //a2.href = "#_";
         a2.id = "img" + i;
 
         if (lazyload != false) {
