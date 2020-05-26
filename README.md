@@ -3,9 +3,9 @@ a website loading random cat pictures from [Random Cat](https://aws.random.cat/m
 
 ## features
 - lightbox
-	-  ArrowLeft/Right: show prev / next img
-	-  Esc: close lightbox
-	-  c/C: change lightbox view (fit2screen / fill horizontal space)
+	-  `ArrowLeft/Right`: show prev / next img
+	-  `Esc`: close lightbox
+	-  `c/C`: change lightbox view (fit2screen / fill horizontal space)
 
 ## known issues / bugs / questions without answers
 ¯\\\_(ツ)\_/¯
