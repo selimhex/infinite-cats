@@ -8,7 +8,6 @@ let mainLightboxes = $("main .lightboxes");
 let body = document.querySelector("body");
 
 var url = 'https://aws.random.cat/meow';
-//let status = { };
 let i = 1;
 let fetchloop = 1;
 var fetchloopDone = true;
@@ -28,6 +27,7 @@ $("header h1").innerText = "doggomode activated";
 $("header span").innerText = "";
 $("footer").innerHTML = "end of internet<br>it's the dogpocalypse";
 $("header nav a#mode_switcher").innerText = "🐈";
+$("header nav a#mode_switcher").title = "doggomode sux";
 }
 let isVideo = (fileInput) => !(fileInput.match(/.(jpg|jpeg|png|gif)$/i));
 
