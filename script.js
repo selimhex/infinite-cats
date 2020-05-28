@@ -25,6 +25,8 @@ let doggomode = searchParams.has("doggomode");
 if (doggomode) {var url = 'https://random.dog/woof.json';
 json_file_key = "url";
 $("header h1").innerText = "doggomode activated";
+$("header span").innerText = "";
+$("footer").innerHTML = "end of internet<br>it's the dogpocalypse";
 $("header nav a#mode_switcher").innerText = "🐈";
 }
 let isVideo = (fileInput) => !(fileInput.match(/.(jpg|jpeg|png|gif)$/i));
