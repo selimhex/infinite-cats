@@ -19,6 +19,13 @@ let debuglite = true;
 let loggerclicker;
 let debug = function(){};
 
+let json_file_key = "file"; // for RandomCat meow json
+var searchParams = new URLSearchParams(window.location.search);
+let doggomode = searchParams.has("doggomode");
+if (doggomode) {var url = 'https://random.dog/woof.json';
+json_file_key = "url";}
+let isVideo = (fileInput) => !(fileInput.match(/.(jpg|jpeg|png|gif)$/i));
+
 let checkIfWorking = function() {
   let wasWorking = working;
   if (loadedimgcount < i-3 || !fetchloopDone) {working = true} else {working = false;}
@@ -65,12 +72,14 @@ let initCatter = function(catcount, lazyload) {
     fetch(url)
       .then(res => res.json())
       .then((out) => {
+        if (isVideo(out[json_file_key])) {throw Error("not in the mood for a Video RN")}
         let img = document.createElement("img"); // thumbnail
         let a = document.createElement("a"); // thumbnail_container
         let img2 = document.createElement("img"); // lightbox
         let a2 = document.createElement("a"); // lightbox container named #img1, #img2 etc.
 
-        img.src = out.file;
+        img.src = out[json_file_key];
+
         img.classList.add("thumbnail");
         img.onload = function() {loadedimgcount++; checkIfWorking();}
         a.classList.add("thumbnail_container");
@@ -82,7 +91,7 @@ let initCatter = function(catcount, lazyload) {
         if (probability > 60) {img.classList.add("max60");}
         if (probability > 75) {img.classList.add("max85");}
 
-        img2.src = out.file;
+        img2.src = out[json_file_key];
         a2.classList.add("lightbox");
         a2.href = "#th" +i;
         //a2.href = "#_";
@@ -96,8 +105,9 @@ let initCatter = function(catcount, lazyload) {
         a2.appendChild(img2);
         mainThumbs.appendChild(a);
         mainLightboxes.appendChild(a2);
-      }).catch(err => console.error(err))
-      .finally(() => {fetchloop++; i++;
+        i++;
+      }).catch(err => {if (debugMode){console.error(err)}})
+      .finally(() => {fetchloop++;
                       if (fetchloop-1 == catcount) {
                       fetchloopDone = true;
                       logger();
