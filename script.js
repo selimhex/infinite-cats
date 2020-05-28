@@ -23,8 +23,18 @@ let json_file_key = "file"; // for RandomCat meow json
 var searchParams = new URLSearchParams(window.location.search);
 let doggomode = searchParams.has("doggomode");
 if (doggomode) {var url = 'https://random.dog/woof.json';
-json_file_key = "url";}
+json_file_key = "url";
+$("header h1").innerText = "doggomode activated";
+$("header nav a#mode_switcher").innerText = "🐈";
+}
 let isVideo = (fileInput) => !(fileInput.match(/.(jpg|jpeg|png|gif)$/i));
+
+let switch2url;
+let switch_mode = function(){
+if(!doggomode) { switch2url = window.location.href.split(/[?#]/)[0] + "?doggomode";
+} else { switch2url = window.location.href.split(/[?#]/)[0]; }
+  window.location.href = switch2url;
+}
 
 let checkIfWorking = function() {
   let wasWorking = working;
@@ -126,6 +136,10 @@ initCatter(10, false);
 
 document.addEventListener("scroll", function(event) {
   shouldIinfiniteScroll();
+});
+$("header nav a#mode_switcher").addEventListener("click",(event) => {
+  event.preventDefault();
+  switch_mode();
 });
 
 

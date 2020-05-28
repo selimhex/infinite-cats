@@ -17,4 +17,29 @@ justify-content: center;
 /* body *, a, img { overflow: hidden; } */
 body.debugMode .thumbnail_container:nth-last-child(2) {/*display: block;*/border: 3px solid red;}
 .thumbnail_container { display: flex; justify-content: center; margin-bottom: 5%;}
-footer { height: 10vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #ccc5;}
+
+header, .fade-out { animation: fadeOut ease 2s;}
+@keyframes fadeOut {0% {opacity:1;}}
+@-moz-keyframes fadeOut {0% {opacity:1;}}
+@-webkit-keyframes fadeOut {0% {opacity:1;}}
+@-o-keyframes fadeOut {0% {opacity:1}}
+@-ms-keyframes fadeOut {0% {opacity:1;}}
+
+
+header,footer { height: 10vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #ccc5; flex-direction: column; width: 100%;}
+h1, nav {font-weight: normal; font-size: 2em;}
+nav a {text-decoration: underline; color: orange}
+header nav {position: fixed;top:0; right:0; opacity: .2;}
+header span {display: block;}
+header {position: fixed; height: auto; opacity: 0; color: #ccc;}
+header h1:hover {color: yellow}
+
+header:hover, header nav:hover { color: #ccc;cursor: default; opacity: 1;}
+
+
+header, .fade-out {
+  transition: ease 2s;
+}
+header:hover, .fade-out {
+  transition: 0s;
+}
