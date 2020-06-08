@@ -13,7 +13,7 @@ let fetchloop = 1;
 var fetchloopDone = true;
 var working = false;
 let loadedimgcount = 0;
-let debugMode = true;
+let debugMode = false;
 let debuglite = true;
 let loggerclicker;
 let debug = function(){};
@@ -34,7 +34,7 @@ let dict;
 var loaddict = function(){
 fetch('dict.json')
   .then(response => response.json())
-  .then(data => {dict=data; console.log(dict);
+  .then(data => {dict=data;
 
     if (doggomode) {url = 'https://random.dog/woof.json';
     json_file_key = "url";
