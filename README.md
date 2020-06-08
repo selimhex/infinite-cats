@@ -1,3 +1,4 @@
+🐈🐈🐈🐈🐈🐈🐈<img src="https://infinite.cat/i/og_infinite_cats.gif" alt="infinite cats" width="15%"/>🐈🐈🐈🐈🐈🐈🐈
 # infinite cats for internet's sake
 a website loading random cat pictures from [Random Cat](https://aws.random.cat/meow) à la "infinite scroll".
 
@@ -21,3 +22,5 @@ a website loading random cat pictures from [Random Cat](https://aws.random.cat/m
 ## cool stuff to checkout
 - this extensive list of [Public APIs](https://github.com/public-apis/public-apis)
 - [chance.js](https://github.com/chancejs/chancejs)
+
+<!--![infinite cats](https://infinite.cat/i/og_infinite_cats.gif)-->
