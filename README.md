@@ -11,9 +11,11 @@ a website loading random cat pictures from [Random Cat](https://aws.random.cat/m
 ¯\\\_(ツ)\_/¯
 
 ## roadmap / maybe
+- check if img link already fetched
 - prev / next links on lightbox + swipe on touchscreen
 - hint lightbox is scrollable if the pic not wholly in screen
 - img proxy to generate smaller thumbnails to save bandwidth. (probably already exists)
+- fox & [sloth](http://www.cutestpaw.com/?s=sloth) modes?
 
 
 ## cool stuff to checkout

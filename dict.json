@@ -1,0 +1,26 @@
+{
+  "en": {
+    "title": "infinite cats - a lot of cats",
+    "headertext": "infinite cats",
+    "headersub": "for internet's sake",
+    "doggomodetitle": "activate doggomode",
+    "doggomodeactivated": "doggomode activated",
+    "catmodetitle": "doggomode sux",
+    "otherlang": "cat",
+    "otherlangtitle": "català",
+    "footer": "end of internet<br>it's the catpocalypse",
+    "footerdoggomode": "end of internet<br>it's the dogpocalypse"
+  },
+  "cat": {
+    "title": "gats infinits - molts gats",
+    "headertext": "gats infinits",
+    "headersub": "pel bé del internet",
+    "doggomodetitle": "activar modo gos",
+    "doggomodeactivated": "modo gos activado",
+    "catmodetitle": "modo gos és una merda",
+    "otherlang": "en",
+    "otherlangtitle": "english",
+    "footer": "el final del internet<br>és la gatpocalipsi",
+    "footerdoggomode": "el final del internet<br>és la gospocalipsi"
+  }
+}

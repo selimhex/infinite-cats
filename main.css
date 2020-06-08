@@ -32,7 +32,9 @@ nav a {text-decoration: underline; color: orange}
 
 header span {display: block;}
 header {position: fixed; height: auto; color: #ccc0; user-select: none;}
-header nav {position: fixed;top:0; right:0; opacity: .25;}
+header nav#animode {right:0;}
+header nav#langopt {left:0;}
+header nav {position: fixed;top:0; opacity: .25;}
 header:hover{ color: #cccb;cursor: default;} /* xBF = 75% x9E = 62% */
 header:hover nav { opacity: .75; transition: ease .5s;}
 header nav:hover {opacity: 1}

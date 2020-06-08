@@ -1,4 +1,5 @@
-'use strict';
+<?header("Content-type: application/javascript");
+?>'use strict';
 const $ = (a) => {return document.querySelector(a)};
 const qA = (a) => {return document.querySelectorAll(a)};
 let main = $("main");
@@ -7,13 +8,13 @@ let mainLightboxes = $("main .lightboxes");
 
 let body = $("body");
 
-let url = 'https://aws.random.cat/meow';
+var url = 'https://aws.random.cat/meow';
 let i = 1;
 let fetchloop = 1;
 var fetchloopDone = true;
 var working = false;
 let loadedimgcount = 0;
-let debugMode = true;
+let debugMode = false;
 let debuglite = true;
 let loggerclicker;
 let debug = function(){};
@@ -30,27 +31,21 @@ if (chosenLang && (lang === "en" || lang === "cat")){
 
 } else {lang = "en";}
 
-let dict;
-var loaddict = function(){
-fetch('dict.json')
-  .then(response => response.json())
-  .then(data => {dict=data; console.log(dict);
-
-    if (doggomode) {url = 'https://random.dog/woof.json';
-    json_file_key = "url";
-    $("header h1").innerText = dict[lang]["doggomodeactivated"];
-    $("header span").innerText = "";
-    $("footer").innerHTML = dict[lang]["footerdoggomode"];
-    $("header nav a#mode_switcher").innerText = "🐈";
-    $("header nav a#mode_switcher").title = dict[lang]["catmodetitle"];;
-    }
-    initCatter(10, false);
-
-  })
-  .catch(err => {console.error(err); loaddict();});
+if (lang === "cat") {
+function activatelang(){
+  //init();
 }
-loaddict();
+}
+let dict = <?echo utf8_decode(file_get_contents("dict.json"))?>;
 
+if (doggomode) {var url = 'https://random.dog/woof.json';
+json_file_key = "url";
+$("header h1").innerText = "doggomode activated";
+$("header span").innerText = "";
+$("footer").innerHTML = "end of internet<br>it's the dogpocalypse";
+$("header nav a#mode_switcher").innerText = "🐈";
+$("header nav a#mode_switcher").title = "doggomode sux";
+}
 let isVideo = (fileInput) => !(fileInput.match(/.(jpg|jpeg|png|gif)$/i));
 
 let switch2url;
@@ -165,6 +160,7 @@ let initCatter = function(catcount, lazyload) {
 
   }
 }
+initCatter(10, false);
 
 
 //let autoCat = setInterval(newCat, 10000);
