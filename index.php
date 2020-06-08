@@ -2,8 +2,9 @@
 <?php
 $lang = $_GET["lang"];
 $doggomode = $_GET["doggomode"];
+$isdoggomode = (isset($doggomode));
+#if ($isdoggomode) {echo "is doggomode";}else{echo "is not doggomode";}
 if ($lang <> "" && ($lang === "en" || $lang === "cat")){
-  //$lang = "en";
 } else {
   $lang = "en";
 }
@@ -11,7 +12,7 @@ $url = 'dict.json';
 $data = file_get_contents($url);
 $dict = $data;
 $dict = json_decode($dict);
-?><html lang="<?=$lang?>" dir="ltr">
+?><html lang="<?=$dict->$lang->htmllang?>" dir="ltr">
 
 <head>
   <meta charset="utf-8">
@@ -32,22 +33,38 @@ $dict = json_decode($dict);
 </head>
 
 <body>
-  <header><h1><?if (!isset($doggomode)){
+  <header><h1><?if (!$isdoggomode){
      echo $dict->$lang->headertext;?></h1><span><? echo $dict->$lang->headersub;}
      else {
        echo $dict->$lang->doggomodeactivated;?></h1><span><?}
      ?></span>
-    <nav id="animode"><a href="#_" id="mode_switcher" title="<?
-  if (!isset($doggomode)){ echo $dict->$lang->doggomodetitle ?>">🐶<?}
+    <nav id="animode"><a href="<?
+      if (!$isdoggomode) { $qs1 = "?doggomode";
+        if ($dict->$lang->otherlang === "cat"){$qs1 .= "";} else {$qs1 .= "&lang=cat";}
+      } else {
+      $qs1 = "";
+        if ($lang === "cat"){$qs1 = "?lang=cat";} else {$qs1 = "/";}
+      }
+echo $qs1;
+       ?>" id="mode_switcher" title="<?
+  if (!$isdoggomode){ echo $dict->$lang->doggomodetitle ?>">🐶<?}
   else {echo $dict->$lang->catmodetitle ?>">🐈<?}
     ?></a></nav>
-    <nav id="langopt"><a href="#_" id="lang_opt" title="<?=$dict->$lang->{"otherlangtitle"}?>"><?=$dict->$lang->otherlang?></a></nav>
+    <nav id="langopt"><a href="<?
+      if (!$isdoggomode) { $qs2 = "";
+        if ($dict->$lang->otherlang === "cat"){$qs2 .= "?lang=cat";} else {$qs2 = "/";}
+      } else {
+      $qs2 = "?doggomode";
+        if ($dict->$lang->otherlang === "cat"){$qs2 .= "&lang=cat";}
+      }
+echo $qs2;
+       ?>" id="lang_opt" title="<?=$dict->$lang->{"otherlangtitle"}?>"><?=$dict->$lang->otherlang?></a></nav>
   </header>
   <main>
     <div class="thumbs"></div>
     <div class="lightboxes fit2screen"></div>
   </main>
-  <footer><?if (!isset($doggomode)){
+  <footer><?if (!$isdoggomode){
      echo $dict->$lang->footer;} else {
        echo $dict->$lang->footerdoggomode;}?></footer>
   <script type="text/javascript" src="https://chancejs.com/chance.min.js"></script>
