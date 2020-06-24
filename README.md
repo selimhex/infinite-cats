@@ -13,6 +13,7 @@ a website loading random cat pictures from [Random Cat](https://aws.random.cat/m
 
 ## roadmap / maybe
 - check if img link already fetched
+- share cat pic function (unique urls as permalink. maybe with emojis)
 - prev / next links on lightbox + swipe on touchscreen
 - hint lightbox is scrollable if the pic not wholly in screen
 - img proxy to generate smaller thumbnails to save bandwidth. (probably already exists)
