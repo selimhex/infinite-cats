@@ -12,6 +12,15 @@ $url = 'dict.json';
 $data = file_get_contents($url);
 $dict = $data;
 $dict = json_decode($dict);
+  if (!$isdoggomode) { $qs2 = "";
+    if ($dict->$lang->otherlang === "cat"){$qs2 .= "?lang=cat";} else {$qs2 = "/";}
+  } else {
+  $qs2 = "?doggomode";
+    if ($dict->$lang->otherlang === "cat"){$qs2 .= "&lang=cat";}
+  }
+#$baseurl= $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER['HTTP_HOST'];
+$HTTP_or_HTTPS = (((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off') || $_SERVER['SERVER_PORT']==443) ? 'https://':'http://' );            //in some cases, you need to add this condition too: if ('https'==$_SERVER['HTTP_X_FORWARDED_PROTO'])  ...
+$baseurl= $HTTP_or_HTTPS . $_SERVER['HTTP_HOST'];
 ?><html lang="<?=$dict->$lang->htmllang?>" dir="ltr">
 
 <head>
@@ -25,6 +34,9 @@ $dict = json_decode($dict);
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐈</text></svg>">
   <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="main.css">
+  <link rel="alternate" hreflang="<?
+  #$other=$dict->$lang->otherlang
+  echo $dict->{$dict->$lang->otherlang}->htmllang?>" href="<?=$baseurl?><?=$qs2?>">
   <meta name="title" property="og:title" content="Infinite Cats">
   <meta name="description" property="og:description" content="infinite cats for internet's sake">
   <meta name="image" property="og:image" content="https://infinite.cat/i/og_infinite_cats.gif">
@@ -51,12 +63,6 @@ echo $qs1;
   else {echo $dict->$lang->catmodetitle ?>">🐈<?}
     ?></a></nav>
     <nav id="langopt"><a href="<?
-      if (!$isdoggomode) { $qs2 = "";
-        if ($dict->$lang->otherlang === "cat"){$qs2 .= "?lang=cat";} else {$qs2 = "/";}
-      } else {
-      $qs2 = "?doggomode";
-        if ($dict->$lang->otherlang === "cat"){$qs2 .= "&lang=cat";}
-      }
 echo $qs2;
        ?>" id="lang_opt" title="<?=$dict->$lang->{"otherlangtitle"}?>"><?=$dict->$lang->otherlang?></a></nav>
   </header>
